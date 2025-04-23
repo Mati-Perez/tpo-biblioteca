@@ -64,5 +64,33 @@ namespace tp_biblioteca.entidades
             }
             return resultado;
         }
+        public bool altaLector(string nombre, string dni)
+        {
+            foreach (var lector in lectores)
+            {
+                if (lector.getDni() == dni)
+                {
+                    return false; 
+                }
+            }
+            lectores.Add(new Lector(nombre, dni));
+            return true; 
+        }
+
+        public string PrestarLibro(string titulo, string dni)
+        {
+            Lector lector = lectores.FirstOrDefault(l => l.GetDni() == dni);
+            if (lector == null) return "LECTOR INEXISTENTE";
+
+            if (!lector.PuedePrestar()) return "TOPE DE PRESTAMO ALCAZADO";
+
+            Libro libro = libros.FirstOrDefault(l => l.getTitulo() == titulo);
+            if (libro == null) return "LIBRO INEXISTENTE";
+
+            lector.AgregarPrestamo(libro);
+            libros.Remove(libro);
+
+            return "PRESTAMO EXITOSO";
+        }
     }
 }

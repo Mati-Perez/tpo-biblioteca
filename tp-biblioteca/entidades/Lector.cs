@@ -16,7 +16,12 @@ namespace tp_biblioteca.entidades
         {
             this.nombre = nombre;
             this.dni = dni;
-            this.librosPrestados = [];
+            this.librosPrestados = new List<Libro>();
         }
+
+        public string GetDni() => dni;
+        public int CantidadPrestamos() => librosPrestados.Count;
+        public bool PuedePrestar() => librosPrestados.Count < 3;
+        public void AgregarPrestamo(Libro libro) => librosPrestados.Add(libro);
     }
 }

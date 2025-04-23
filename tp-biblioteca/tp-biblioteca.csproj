@@ -8,4 +8,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\aflmarcaz\Source\Repos\tpo-biblioteca\tp-biblioteca\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\aflmarcaz\Source\Repos\tpo-biblioteca\tp-biblioteca\.editorconfig" />
+  </ItemGroup>
+
 </Project>
