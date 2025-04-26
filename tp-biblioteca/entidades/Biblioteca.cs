@@ -18,6 +18,8 @@ namespace tp_biblioteca.entidades
             this.libros = new List<Libro>();
         }
 
+        //los signos de (?) adelante de las variables elimina la advenrtencia de null 
+        //le decimos al compilador que sabemos que pueden ser nula la respeusta y vamosa  trabajar con esa nullabilidad
         private Libro? buscarLibro(string titulo)
         {
             Libro? libroBuscado = null;
