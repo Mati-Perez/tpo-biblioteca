@@ -9,15 +9,18 @@ namespace tp_biblioteca.entidades
     internal class Biblioteca
     {
         private List<Libro> libros;
+        private List<Lector> lectores = new List<Lector>();
+
+        public List<Lector> Lectores { get => lectores; }
 
         public Biblioteca()
         {
             this.libros = new List<Libro>();
         }
 
-        private Libro buscarLibro(string titulo)
+        private Libro? buscarLibro(string titulo)
         {
-            Libro libroBuscado = null;
+            Libro? libroBuscado = null;
             int i = 0;
             while (i < libros.Count && !libros[i].getTitulo().Equals(titulo))
             {
@@ -33,7 +36,7 @@ namespace tp_biblioteca.entidades
         public bool agregarLibro(string titulo, string autor, string editorial)
         {
             bool resultado = false;
-            Libro libro;
+            Libro? libro;
             libro = buscarLibro(titulo);
             if (libro == null)
             {
@@ -55,7 +58,7 @@ namespace tp_biblioteca.entidades
         public bool eliminarLibro(string titulo)
         {
             bool resultado = false;
-            Libro libro;
+            Libro? libro;
             libro = buscarLibro(titulo);
             if (libro != null)
             {
@@ -68,23 +71,23 @@ namespace tp_biblioteca.entidades
         {
             foreach (var lector in lectores)
             {
-                if (lector.getDni() == dni)
+                if (lector.GetDni() == dni)
                 {
-                    return false; 
+                    return false;
                 }
             }
             lectores.Add(new Lector(nombre, dni));
-            return true; 
+            return true;
         }
 
         public string PrestarLibro(string titulo, string dni)
         {
-            Lector lector = lectores.FirstOrDefault(l => l.GetDni() == dni);
+            Lector? lector = lectores.FirstOrDefault(l => l.GetDni() == dni);
             if (lector == null) return "LECTOR INEXISTENTE";
 
             if (!lector.PuedePrestar()) return "TOPE DE PRESTAMO ALCAZADO";
 
-            Libro libro = libros.FirstOrDefault(l => l.getTitulo() == titulo);
+            Libro? libro = libros.FirstOrDefault(l => l.getTitulo() == titulo);
             if (libro == null) return "LIBRO INEXISTENTE";
 
             lector.AgregarPrestamo(libro);

@@ -15,6 +15,22 @@ namespace Colecciones
             biblioteca.eliminarLibro("Libro5");
             biblioteca.listarLibros();
 
+            Console.WriteLine(biblioteca.altaLector("sebastian", "38909876"));
+            Console.WriteLine(biblioteca.Lectores[0].GetDni());
+            Console.WriteLine(biblioteca.altaLector("sebastian", "38909876"));
+
+
+            Console.WriteLine(biblioteca.PrestarLibro("Libro3", "38909876"));
+            Console.WriteLine(biblioteca.PrestarLibro("Libro4", "38909876"));
+            Console.WriteLine(biblioteca.PrestarLibro("Libro5", "38909876"));
+            Console.WriteLine("Prueba del tope  " + biblioteca.PrestarLibro("Libro6", "38909876"));
+
+            Console.WriteLine(biblioteca.PrestarLibro("libro2", "90897867"));
+            Console.WriteLine(biblioteca.PrestarLibro("libro2", "38909876"));
+
+
+            biblioteca.listarLibros();
+
             void cargarLibros(int cantidad)
             {
                 bool pude;
