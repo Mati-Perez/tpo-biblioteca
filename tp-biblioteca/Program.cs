@@ -50,22 +50,22 @@ namespace Colecciones
             Console.WriteLine("Carga el 5to lector.");
             
             Console.WriteLine("\nAl recibir el error del software se percata de que en la lista de lectores que tenia Florencia figuraba 2 veces.\n");
+            Console.ReadLine();
             biblioteca.altaLector("Florencia", "19280552"); // Se fuerza la carga de un usuario existente para probar la respuesta del sistema.
 
-            Console.ReadLine();
 
             Console.WriteLine("\nUna vez lista la carga de lectores, continua con agregar los libros que fueron prestados a cada lector.");
             Console.ReadLine();
             // Utiliza el metodo PrestarLibro para dicha tarea.
-            Console.WriteLine(biblioteca.PrestarLibro("Libro3", "38909876"));
-            Console.WriteLine(biblioteca.PrestarLibro("Libro4", "38909876"));
-            Console.WriteLine(biblioteca.PrestarLibro("Libro5", "38909876"));
-            Console.WriteLine(biblioteca.PrestarLibro("Libro2", "19280552"));
-            Console.WriteLine(biblioteca.PrestarLibro("Libro6", "38909876")); // Se fuerza el prestamo de un cuarto libro para probar la respuesta del sistema.
+            Console.WriteLine(biblioteca.PrestarLibro("Libro3", "38909876") + " Dni:38909876");
+            Console.WriteLine(biblioteca.PrestarLibro("Libro4", "38909876") + " Dni:38909876");
+            Console.WriteLine(biblioteca.PrestarLibro("Libro6", "38909876") + " Dni:38909876");
+            Console.WriteLine(biblioteca.PrestarLibro("Libro2", "19280552") + " Dni: 19280552");
+            Console.WriteLine(biblioteca.PrestarLibro("Libro8", "38909876") + " Dni:38909876"); ;// Se fuerza el prestamo de un cuarto libro para probar la respuesta del sistema.
 
             Console.WriteLine("\nAl recibir el error del software se percata de la asignacion erronea del libro, y lo corrige asignandoselo al lector correcto.");
             Console.ReadLine();
-            Console.WriteLine(biblioteca.PrestarLibro("Libro6", "32366768"));
+            Console.WriteLine(biblioteca.PrestarLibro("Libro6", "32366768") + " Libro6");
 
             Console.WriteLine("\nUna vez terminado el registro de libros prestados, obtiene una lista actualizada de los libros.");
             Console.ReadLine();

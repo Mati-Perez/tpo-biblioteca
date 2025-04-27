@@ -21,7 +21,7 @@ namespace tp_biblioteca.entidades
 
         public string GetDni() => dni;
         public int CantidadPrestamos() => librosPrestados.Count;
-        public bool PuedePrestar() => librosPrestados.Count < 3;
+        public bool PuedePrestar() => librosPrestados.Count <= 2;
         public void AgregarPrestamo(Libro libro) => librosPrestados.Add(libro);
     }
 }
