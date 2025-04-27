@@ -18,8 +18,8 @@ namespace tp_biblioteca.entidades
             this.libros = new List<Libro>();
         }
 
-        //los signos de (?) adelante de las variables elimina la advenrtencia de null 
-        //le decimos al compilador que sabemos que pueden ser nula la respeusta y vamosa  trabajar con esa nullabilidad
+        //los signos de (?) adelante de las variables elimina la advertencia de null 
+        //le decimos al compilador que sabemos que pueden ser nula la respuesta y vamos a trabajar con esa "nullabilidad"
         private Libro? buscarLibro(string titulo)
         {
             Libro? libroBuscado = null;
@@ -44,16 +44,29 @@ namespace tp_biblioteca.entidades
             {
                 libro = new Libro(titulo, autor, editorial);
                 libros.Add(libro);
+                Console.WriteLine("Libro agregado exitosamente.");
                 resultado = true;
+            }
+            else
+            {
+                Console.WriteLine("Accion cancelada: El libro ya existe.");
             }
             return resultado;
         }
 
         public void listarLibros()
         {
-            foreach (var libro in libros)
+            if (libros.Count() != 0)
             {
-                Console.WriteLine(libro);
+                Console.WriteLine("Los libros de la biblioteca son los siguientes:");
+                foreach (var libro in libros)
+                {
+                    Console.WriteLine(libro);
+                }
+            }
+            else
+            {
+                Console.WriteLine("La biblioteca no posee libros registrados.");
             }
         }
 
@@ -66,19 +79,27 @@ namespace tp_biblioteca.entidades
             {
                 libros.Remove(libro);
                 resultado = true;
+                Console.WriteLine("Libro eliminado exitosamente.");
+            }
+            else
+            {
+                Console.WriteLine("Libro no encontrado: eliminación cancelada.");
             }
             return resultado;
         }
+
         public bool altaLector(string nombre, string dni)
         {
             foreach (var lector in lectores)
             {
                 if (lector.GetDni() == dni)
                 {
+                    Console.WriteLine("Accion cancelada: El usuario ya existe.");
                     return false;
                 }
             }
             lectores.Add(new Lector(nombre, dni));
+            Console.WriteLine("Usuario agregado exitosamente.");
             return true;
         }
 
