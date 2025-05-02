@@ -105,6 +105,8 @@ namespace tp_biblioteca.entidades
 
         public string PrestarLibro(string titulo, string dni)
         {
+            Console.WriteLine(titulo);
+            Console.WriteLine(dni);
             Lector? lector = lectores.FirstOrDefault(l => l.GetDni() == dni);
             if (lector == null) return "LECTOR INEXISTENTE";
 
