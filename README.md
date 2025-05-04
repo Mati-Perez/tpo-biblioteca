@@ -4,4 +4,5 @@
 
 este trabajo cuenta con tres clases: (***Biblioteca*** - ***Lector*** - ***Libro***)
 
-![image](https://github.com/user-attachments/assets/e2a7532d-8af6-48db-ad5f-1cfc33d1be06)
+![diagramaTP](https://github.com/user-attachments/assets/daa35480-f52e-484e-a18c-82e059c86135)
+
